@@ -1,4 +1,4 @@
-package com.gondo.myapp;
+package com.gondo.login;
 
 import java.text.DateFormat;
 import java.util.Date;
