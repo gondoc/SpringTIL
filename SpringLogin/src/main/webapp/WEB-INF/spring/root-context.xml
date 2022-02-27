@@ -4,9 +4,7 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- 인코딩 필터 등록 -->
-	<!-- 메세지 컨버터 등록 -->
 	<bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter" id="xmlConverter" />
-	<bean class="org.springframework.http.converter.json.GsonHttpMessageConverter" id="jsonConverter" />
 
 	<!-- 등록된 메세지 컨버터 맵핑 -->
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
