@@ -1,0 +1,66 @@
+회원관리 만들기
+---------------
+1. db선택 --- MariaDB
+2. 컬럼 정의
+   키필드    		idx  		number
+   사용자아이디 	userid		varchar
+   사용자비밀번호 	password	varchar
+   사용자이름		username	varchar
+   사용자별명       nickname	varchar
+   사용자이메일     email		varchar
+   우편번호			zipcode		varchar
+   주소 1			address1	varchar
+   주소 2			address2	varchar
+   인증여부			use			char	  -- 0(미인증), 1(인증)
+   여분필드1		col1		varchar	
+   여분필드2		col2		varchar	
+   여분필드3		col3		varchar
+
+3. 테이블 생성
+create table member(
+	idx 		number primary key,
+	userid		varchar(100) not null,
+	password	varchar(100) not null,
+	username	varchar(100) not null,
+	nickname	varchar(100) not null,
+	email		varchar(100) not null,
+	zipcode		varchar(10)  not null,
+	address1	varchar(200) not null,
+	address2	varchar(300) not null,
+	use			varchar(1)  DEFAULT '0' CONSTRAINT use_ck CHECK (use IN ('1','0')),
+	col1		varchar(200),
+	col2		varchar(200),
+	col3		varchar(200)
+); 
+
+SELECT * FROM MEMBER;
+
+4. VO 작성
+
+5. 기능
+	1) 회원가입  --- 아이디 중복 확인 -- AJAX
+	2) 가입완료  --- 이메일 인증
+	3) 아이디찾기
+	4) 비번찾기
+	5) 회원정보수정
+	6) 회원탈퇴
+	7) 로그인
+	8) 로그아웃 
+	
+6. DAO를 만들자
+   Mapper도 만들자
+   
+7. 서비스를 만들자.
+   
+   
+
+
+
+
+
+
+
+
+
+
+
