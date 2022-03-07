@@ -14,10 +14,10 @@
 	
 	<!-- DB 연동 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${o.driver}"></property>
-		<property name="url" value="${o.url}"></property>
-		<property name="username" value="${o.username}"></property>
-		<property name="password" value="${o.password}"></property>
+		<property name="driverClassName" value="${m.driver}"></property>
+		<property name="url" value="${m.url}"></property>
+		<property name="username" value="${m.username}"></property>
+		<property name="password" value="${m.password}"></property>
 	</bean>
 	
 	<!-- 트랜젝션 관리자 등록 -->
@@ -28,17 +28,18 @@
 	<!-- Mybatis연결 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="typeAliasesPackage" value="kr.green.member.vo"/>
+		<property name="typeAliasesPackage" value="com.gondo.member.vo"/>
 		<property name="mapperLocations" value="classpath:/kr/green/member/dao/*.xml"/>
 	</bean>
 	
 	<!-- 다음을 추가하면 SqlSession세션을 만들 피요가 없고 DAOImpl도 만들 필요가 없다 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="kr.green.member.dao"/>
+		<property name="basePackage" value="com.gondo.member.dao"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>		
 	
 	<!-- 자바 메일 보내기 객체 -->
+	<!-- 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com"></property>
 		<property name="port" value="587"></property>
@@ -54,7 +55,7 @@
 			</props>
 		</property>
 	</bean>	
-	
+	-->
 	<!-- Security 권한 설정 -->
 	<security:http auto-config="true" use-expressions="true">
         <security:intercept-url pattern="/" access="permitAll" />
